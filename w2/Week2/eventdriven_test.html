@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="demo"></div>
+    <br />
+    <span>What is your name?</span>
+    <input type="text" id="nameInput">
+    <input type="button" id="showNameButton" value="Show Name">
+    <script type="text/javascript">
+
+        var showNameButton = document.getElementById('showNameButton');
+
+    //register the button with a click event listener
+    showNameButton.addEventListener('click', function() {
+	    alert(document.getElementById('nameInput').value);
+    });
+    // Rest of your code...
+        document.getElementById('demo').innerHTML = "JavaScript Event Driven  explained"
+    </script>
+
+
+</body>
+</html>
