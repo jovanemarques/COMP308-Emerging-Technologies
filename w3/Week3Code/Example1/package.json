@@ -1,0 +1,15 @@
+{
+	"name": "Example1",
+	"version": "0.0.3",
+	"dependencies": {
+		"ejs": "^3.0.1",
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.2"
+	},
+	"scripts": {
+		"start": "node server",
+		"dev": "nodemon server"
+	}
+}
