@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+
+<body>
+  <form action="/thankyou" method="POST">
+    <table>
+      <tr>
+        <td>
+          Course Code:
+        </td>
+        <td>
+          <input type="text" name="course_code" value="" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Course Name:
+        </td>
+        <td>
+          <input type="text" name="course_name" value="" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Current Term:
+        </td>
+        <td>
+          <input type="text" name="term" value="" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Program:
+        </td>
+        <td>
+          <input type="text" name="program" value="" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Student email:
+        </td>
+        <td>
+          <input type="text" name="email" value="<%= email %>" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Your comments:
+        </td>
+        <td>
+          <textarea name="comments">
+
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Submit" name="submit" style="background-color: green; color: white; width: 100%;">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

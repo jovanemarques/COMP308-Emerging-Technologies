@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <title> <%= loginMessage %> </title>
+</head>
+
+<body>
+
+  <form method="post">
+    <h2><%= loginMessage %>:</h2>
+    <table>
+      <tr>
+        <td>
+          Email:
+        </td>
+        <td>
+          <input type="text" size="30" placeholder="Enter your email" name="email"><br /><br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password:
+        </td>
+        <td>
+          <input type="password" size="30" placeholder="Enter your password" name="password"><br /><br />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Login" name="submit" style="background-color: green; color: white; width: 100%;">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>
