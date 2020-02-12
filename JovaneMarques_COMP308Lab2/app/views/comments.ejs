@@ -9,19 +9,20 @@
 </head>
 
 <body>
+<div>
     <h2>Comments by <%= email %>, (total: <%= comments.length %>)</h2>
     <table>
-      <tr>
-        <td>
+      <thead>
+        <th>
           Course Code
-        </td>
-        <td>
+        </th>
+        <th>
           Course Name
-        </td>
-        <td>
+        </th>
+        <th>
           Comment
-        </td>
-      </tr>
+        </th>
+      </thead>
       <% comments.forEach(function(comment){ %>
         <tr>
         <td>
@@ -38,5 +39,6 @@
     </table>
     <br/>
     <a href="/">Back to Index</a>
+</div>
 </body>
 </html>
