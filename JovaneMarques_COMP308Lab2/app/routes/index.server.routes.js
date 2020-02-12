@@ -20,6 +20,15 @@ module.exports = function (app) {
     app.post('/signin', function (req, res) {
         index.signin(req, res);
     });
+    app.post('/comment', function (req, res) {
+        index.comment(req, res);
+    });
+    app.get('/commentsByStudent', function (req, res) {
+        index.commentsByStudent(req, res);
+    });
+    app.get('/allStudents', function (req, res) {
+        index.allStudents(req, res);
+    });
     app.post('/', function (req, res) {
         index.displayInfo(req, res);
     });

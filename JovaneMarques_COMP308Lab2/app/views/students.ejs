@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/all.css">
+    <title>Students</title>
+</head>
+
+<body>
+    <h2>List of Students</h2>
+    <table>
+        <tr>
+            <td>
+                First Name
+            </td>
+            <td>
+                Last Name
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Soccer Team
+            </td>
+            <td>
+                GPA
+            </td>
+        </tr>
+        <% students.forEach(function(student){ %>
+        <tr>
+            <td>
+                <%= student.firstName %>
+            </td>
+            <td>
+                <%= student.lastName %>
+            </td>
+            <td>
+                <%= student.email %>
+            </td>
+            <td>
+                <%= student.soccerTeam %>
+            </td>
+            <td>
+                <%= student.gpa %>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+    <br />
+    <a href="/">Back to Index</a>
+</body>
+
+</html>

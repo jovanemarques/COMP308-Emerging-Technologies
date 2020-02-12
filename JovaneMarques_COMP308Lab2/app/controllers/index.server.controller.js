@@ -23,8 +23,6 @@ exports.signup = function (req, res, next) {
         if (err) {
             return next(err);
         } else {
-            //return res.json(student);
-            //return res.redirect('/signin', {message:'Student registered'});
             res.render('signin', {
                 loginMessage: 'Login to evaluate the course',
                 message: 'Student registered'
@@ -33,22 +31,70 @@ exports.signup = function (req, res, next) {
     });
 }
 
+exports.comment = function (req, res, next) {
+    var Comment = require('mongoose').model('Comment');
+    //console.log(req.session);
+    req.body.student = req.session.student_id; 
+    var comment = new Comment(req.body); 
+    comment.save(function (err) {
+        if (err) {
+            return next(err);
+        } else {
+            res.render('thankyou', {
+                email: req.body.email,
+                comments: req.body.comment
+            });
+        }
+    }); 
+}
+
 exports.signin = function (req, res, next) {
     var Student = require('mongoose').model('Student');
     Student.findOne({email: req.body.email}, (err, student) => {
         if (student){
+            if (err) {
+                return getErrorMessage(err);
+            }
             if (student.password == req.body.password){
+                let session = req.session;
+                session.email = student.email;
+                session.student_id = student.id;
                 res.render('comment', {
                     email: student.email
                 });
+            } else {
+                return res.send('Wrong password');
             }
+        } else {
+            return res.send('User not found');
+        }
+    });
+}
+
+exports.allStudents = function (req, res, next) {
+    var Student = require('mongoose').model('Student');
+    Student.find({}, (err, students) => {
+        if (err) {
+            return getErrorMessage(err);
+        }
+        if (students){
+            res.render('students', {
+                students: students 
+            });
+        } else {
+            return res.send('No students found.')
         }
     });
 }
 
 exports.commentsByStudent = function (req, res, next) {
     var email = req.session.email;
+    if (!email){ 
+        return res.send('You have to login to see this page');
+    }
     //find the student then its comments using Promise mechanism of Mongoose
+    var Student = require('mongoose').model('Student');
+    var Comment = require('mongoose').model('Comment');
     Student.
     findOne({
         email: email
