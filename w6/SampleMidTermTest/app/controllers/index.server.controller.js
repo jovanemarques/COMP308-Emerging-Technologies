@@ -1,12 +1,13 @@
-﻿// Create a new render method to render index.ejs
-//
-//You can require this module and use this function
-//You'll need to use Express routing functionality to utilize the controller
-
-exports.render = function (req, res) {    
-        //display index.ejs
-        res.render('index', {
-            title: 'Mongoose Test 1'
-        });   
+﻿// Create a new 'render' controller method
+exports.render = function (req, res) {
+    // Use the 'response' object to render the 'index' view with a 'title' property
+    res.render('index', {title: 'Sample Test'} );
     
+};
+
+// Create a new 'renderAdd' controller method
+exports.renderAdd = function (req, res) {
+    // Use the 'response' object to render the 'add_task' view with a 'title' property
+    res.render('add_task', { title: 'Add New task' });
+
 };

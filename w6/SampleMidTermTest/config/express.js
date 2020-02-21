@@ -26,9 +26,10 @@ module.exports = function () {
         extended: true
     }));
     app.use(bodyParser.json()); //use middleware that only parses json
-    app.use(methodOverride()); // use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
-    //saveUninitialized - orces a session that is "uninitialized" to be saved to the store
-    //resave - forces the session to be saved back to the session store
+    // use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+    app.use(methodOverride());//handle the use of PUT or DELETE methods
+    //override with POST having ?_method=DELETE or ?_method=PUT in HTML code
+    app.use(methodOverride('_method'));
     // Configure the 'session' middleware
     app.use(session({
         saveUninitialized: true,
@@ -42,11 +43,11 @@ module.exports = function () {
     app.engine('html', require('ejs').renderFile);
     //bootstrap the app using the controller and routing modules
     // Load the routing files
-    require('../app/routes/index.server.routes.js')(app);
-    require('../app/routes/users.server.routes.js')(app);
+    require('../app/routes/tasks.server.routes.js')(app);
     //The express.static() middleware takes one argument 
     //to determine the location of the static folder
     //Configure static file serving
     app.use(express.static('./public'));
+
     return app;
 };
